@@ -10,11 +10,12 @@ namespace Api.Controllers
     [ApiController]
     public class HelloController : ControllerBase
     {
-        // GET api/values
         [HttpGet]
-        public ActionResult<string> Get()
+        public ActionResult<string> Get([FromQuery] string text)
         {
-            return "Hello World!";
+            if (text.Equals(string.Empty))
+                text = "<Put Your Message>";
+            return $"Hello {text}!";
         }
     }
 }
