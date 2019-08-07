@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "406dcd8c-2651-4294-a656-5d0d19d3dbe0",
+		"name": "dotnet-api-mvc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Call HelloAPI ShouldBe Hello World!",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84af170e-18c7-4c4a-84ba-d57e6d884d51",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Hello World!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/hello?text=World",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"hello"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "World"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
